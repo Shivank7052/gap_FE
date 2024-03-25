@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gap/camera.dart';
 import 'package:gap/onboarding_screen.dart';
 
 void main() {
@@ -17,6 +16,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.purple,
       ),
       home: const HomeScreen(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
