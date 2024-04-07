@@ -7,29 +7,14 @@ import 'package:gap/result_screen.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-class CameraPage extends StatelessWidget {
+class CameraPage extends StatefulWidget {
   const CameraPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'GAP',
-      theme: ThemeData(
-        primarySwatch: Colors.purple,
-      ),
-      home: const MainScreen(),
-    );
-  }
+  State<CameraPage> createState() => _CameraPageState();
 }
 
-class MainScreen extends StatefulWidget {
-  const MainScreen({super.key});
-
-  @override
-  State<MainScreen> createState() => _MainScreenState();
-}
-
-class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
+class _CameraPageState extends State<CameraPage> with WidgetsBindingObserver {
   bool _isPermissionGranted = false;
 
   late final Future<void> _future;

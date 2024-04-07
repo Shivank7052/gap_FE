@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gap/main.dart';
+import 'package:gap/main_screen.dart';
 
 class onBoardingScreen extends StatefulWidget {
   const onBoardingScreen({super.key});
@@ -52,10 +52,11 @@ class _onBoardingScreenState extends State<onBoardingScreen> {
               ),
               InkWell(
                 onTap: () => {
-                  Navigator.push(
+                  Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                          builder: (BuildContext context) => HomeScreen()))
+                          builder: (BuildContext context) =>
+                              const MainScreen()))
                 },
                 child: Container(
                   width: 320,

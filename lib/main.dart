@@ -32,21 +32,10 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Generic Alternative Provider'),
-        centerTitle: true,
-      ),
-      body: Center(
-        child: ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (BuildContext context) => onBoardingScreen(),
-                  ));
-            },
-            child: const Text('Open Camera')),
-      ),
-    );
+        appBar: AppBar(
+          title: const Text('Generic Alternative Provider'),
+          centerTitle: true,
+        ),
+        body: const onBoardingScreen());
   }
 }
