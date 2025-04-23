@@ -31,7 +31,6 @@ dependencies:
   flutter:
     sdk: flutter
 
-
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.6
@@ -62,34 +61,21 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
-  # To add assets to your application, add an assets section, like this:
+  # Since the assets (images and fonts) are missing, we will just comment them temporarily:
   assets:
-    - images/
+    # - images/  # Uncomment this line when the images folder is available
 
-  # An image asset can refer to one or more resolution-specific "variants", see
-  # https://flutter.dev/assets-and-images/#resolution-aware
-
-  # For details regarding adding assets from package dependencies, see
-  # https://flutter.dev/assets-and-images/#from-packages
-
-  # To add custom fonts to your application, add a fonts section here,
-  # in this "flutter" section. Each entry in this list should have a
-  # "family" key with the font family name, and a "fonts" key with a
-  # list giving the asset and other descriptors for the font. For
-  # example:
-  fonts:
-    - family: Poppins Bold
-      fonts:
-        - asset: fonts/Poppins-Bold.ttf
-          weight: 700
-    - family: Poppins Medium
-      fonts:
-        - asset: fonts/Poppins-Medium.ttf
-          weight: 500
-    - family: Poppins Light
-      fonts:
-        - asset: fonts/Poppins-Light.ttf
-          weight: 500
-  #
-  # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/custom-fonts/#from-packages
+  # Commented out the fonts section because fonts folder is missing
+  # fonts:
+  #   - family: Poppins Bold
+  #     fonts:
+  #       - asset: fonts/Poppins-Bold.ttf
+  #         weight: 700
+  #   - family: Poppins Medium
+  #     fonts:
+  #       - asset: fonts/Poppins-Medium.ttf
+  #         weight: 500
+  #   - family: Poppins Light
+  #     fonts:
+  #       - asset: fonts/Poppins-Light.ttf
+  #         weight: 500
