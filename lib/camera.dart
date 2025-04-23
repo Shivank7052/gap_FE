@@ -1,9 +1,8 @@
 import 'dart:convert';
-import 'config.dart';  // Import config.dart to use processURL
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
-import 'package:gap/result_screen.dart';
+import 'package:gap/result_screen.dart';  // Make sure this is the correct path to your ResultScreen
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -149,63 +148,28 @@ class _CameraPageState extends State<CameraPage> with WidgetsBindingObserver {
     }
   }
 
-  Future<void> _cameraSelected(CameraDescription camera) async {
-    _cameraController = CameraController(
-      camera,
-      ResolutionPreset.max,
-      enableAudio: false,
-    );
+  // Hardcode the output here
+  Future<void> _scanImage() async {
+    try {
+      const text = "CALPOL, *DELCON, LEVOLIN, MEFTAL-P";  // Hardcoded output
 
-    await _cameraController!.initialize();
-    await _cameraController!.setFlashMode(FlashMode.off);
-
-    if (!mounted) {
-      return;
-    }
-    setState(() {});
-  }
-
-  Future<void> result(String text) async {
-    final navigator = Navigator.of(context);
-    if (text.isNotEmpty) {
-      var textBody = {"text": text};
-
-      var res = await http.post(Uri.parse(processURL),  // Use processURL here
-          headers: {"Content-type": "application/json"},
-          body: jsonEncode(textBody));
-
-      await navigator.push(
-        MaterialPageRoute(
-          builder: (BuildContext context) =>
-              ResultScreen(text: res.body.toString()),
+      result(text);  // Send the text to the result screen
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('An error occurred when scanning text'),
         ),
       );
     }
   }
 
-  Future<void> _scanImage() async {
-    if (_cameraController == null) return;
+  Future<void> result(String text) async {
+    final navigator = Navigator.of(context);
 
-    try {
-      // Uncomment to take picture and process real image
-      // final pictureFile = await _cameraController!.takePicture();
-      //
-      // final file = File(pictureFile.path);
-      // final inputImage = InputImage.fromFile(file);
-      // final recognizedText = await textRecognizer.processImage(inputImage);
-      //
-      // final String text = recognizedText.text;
-      //
-      // result(text);
-
-      const text =
-          "dextromethorphane, cabergoline, abacavir, amylase-papain-carminative-oil, cytosine-arabinoside, cyproheptadine-vit-b1-vit-b2-vit-b6 ";
-
-      result(text);
-    } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('An error occurred when scanning text'),
+    if (text.isNotEmpty) {
+      await navigator.push(
+        MaterialPageRoute(
+          builder: (BuildContext context) => ResultScreen(text: text),
         ),
       );
     }
