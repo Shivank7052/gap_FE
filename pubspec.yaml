@@ -61,9 +61,10 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
-  # Since the assets (images and fonts) are missing, we will just comment them temporarily:
+  # The assets section should be defined as a list, even if empty.
   assets:
-    # - images/  # Uncomment this line when the images folder is available
+    # Uncomment and add images here when available
+    # - images/
 
   # Commented out the fonts section because fonts folder is missing
   # fonts:
