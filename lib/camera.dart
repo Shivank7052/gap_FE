@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'config.dart';
+import 'config.dart';  // Import config.dart to use processURL
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
@@ -170,7 +170,7 @@ class _CameraPageState extends State<CameraPage> with WidgetsBindingObserver {
     if (text.isNotEmpty) {
       var textBody = {"text": text};
 
-      var res = await http.post(Uri.parse(processURL),
+      var res = await http.post(Uri.parse(processURL),  // Use processURL here
           headers: {"Content-type": "application/json"},
           body: jsonEncode(textBody));
 
@@ -187,6 +187,7 @@ class _CameraPageState extends State<CameraPage> with WidgetsBindingObserver {
     if (_cameraController == null) return;
 
     try {
+      // Uncomment to take picture and process real image
       // final pictureFile = await _cameraController!.takePicture();
       //
       // final file = File(pictureFile.path);
