@@ -5,7 +5,7 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.3.1 <4.0.0'
+  sdk: '>=3.2.0 <4.0.0'  # Updated to match your current Dart SDK version
 
 dependencies:
   flutter:
@@ -25,10 +25,9 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
-  # Explicitly define assets as an empty list
   assets: []
 
-  # Commenting out fonts section as fonts folder is missing
+  # Commented out fonts section as fonts folder is missing
   # fonts:
   #   - family: Poppins Bold
   #     fonts:
